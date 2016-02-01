@@ -22,8 +22,8 @@ brew update
 brew install caskroom/cask/brew-cask
 
 brew cask install --appdir="~/Applications" java
-brew cask install --appdir="~/Applications" intellij-idea-ce
-brew cask install --appdir="~/Applications" android-studio
+# brew cask install --appdir="~/Applications" intellij-idea-ce
+# brew cask install --appdir="~/Applications" android-studio
 
 brew install android-sdk
 
