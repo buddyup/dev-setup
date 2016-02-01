@@ -34,8 +34,8 @@ function runDots() {
             # suit your needs.
             echo ""
             echo "------------------------------"
-            echo "Installing Homebrew along with some common formulae and apps."
-            echo "This might awhile to complete, as some formulae need to be installed from source."
+            echo "Installing Homebrew and some common formulas and apps."
+            echo "This might a while to complete.  Hang in there. :)"
             echo "------------------------------"
             echo ""
             ./brew.sh
