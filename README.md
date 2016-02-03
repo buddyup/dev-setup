@@ -1,13 +1,12 @@
 Buddyup Dev Machine Setup
 =================
 
-Run this:
+Four steps:
 
-```bash
-bash <(curl -s https://raw.githubusercontent.com/buddyup/dev-setup/master/setup.sh)
-```
-
-When it's done, reboot, and run it again, just to make sure it's done.
+1. Run this: ```bash <(curl -s https://raw.githubusercontent.com/buddyup/dev-setup/master/setup.sh) ```
+2. Reboot.
+3. Run it again.
+4. Reboot.  You're done!
 
 
 
