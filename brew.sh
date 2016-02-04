@@ -53,27 +53,27 @@ brew install wget --with-iri
 # brew install narwhal
 
 # Install Python
-brew install python
-brew install python3
+# brew install python
+# brew install python3
 
 # Install ruby-build and rbenv
-brew install ruby-build
-brew install rbenv
-LINE='eval "$(rbenv init -)"'
-grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
+# brew install ruby-build
+# brew install rbenv
+# LINE='eval "$(rbenv init -)"'
+# grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
 
 # Install more recent versions of some OS X tools.
 # brew install vim --override-system-vi
 brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
+# brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 # brew install homebrew/php/php55 --with-gmp
 
 # Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+# brew tap bramstein/webfonttools
+# brew install sfnt2woff
+# brew install sfnt2woff-zopfli
+# brew install woff2
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 # brew install aircrack-ng
@@ -109,16 +109,16 @@ brew install git
 brew install git-lfs
 brew install git-flow
 brew install git-extras
-brew install imagemagick --with-webp
+# brew install imagemagick --with-webp
 brew install lua
 brew install lynx
 brew install p7zip
 brew install pigz
 brew install pv
 brew install rename
-brew install rhino
+# brew install rhino
 brew install speedtest_cli
-brew install ssh-copy-id
+# brew install ssh-copy-id
 brew install tree
 brew install webkit2png
 brew install zopfli
@@ -150,6 +150,7 @@ brew cask install --appdir="~/Applications" java
 brew cask install --appdir="/Applications" virtualbox
 # brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" heroku-toolbelt
+heroku plugins:install https://github.com/heroku/heroku-accounts.git
 # brew cask install --appdir="/Applications" macdown
 
 # Misc casks
