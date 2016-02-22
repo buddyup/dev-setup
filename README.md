@@ -11,8 +11,12 @@ Four steps:
 
 
 
+
 ## Background:
 
 This setup script is a stripped down version of this repo: https://github.com/donnemartin/dev-setup
 
 Lots of details and screenshots there if you're curious, but you shouldn't need them.
+
+
+Broadly, we use docker, and [docker-os-x](https://github.com/brikis98/docker-osx-dev) for file-syncing goodness.

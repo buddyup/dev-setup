@@ -53,7 +53,7 @@ brew install wget --with-iri
 # brew install narwhal
 
 # Install Python
-# brew install python
+brew install python
 # brew install python3
 
 # Install ruby-build and rbenv
@@ -172,9 +172,46 @@ brew cask install --appdir="/Applications" dropbox
 # Install Docker, which requires virtualbox
 brew install docker
 brew install boot2docker
+boot2docker config | sed "s/DiskSize = 20000/DiskSize = 30000/g" > ~/.boot2docker/profile
+
+
+# Set up dns
+# sudo sh -c "echo 'nameserver `boot2docker ssh ifconfig | tr "\n" " " | pcregrep -o2 -iM "docker0(.*?)inet addr:(.*?) Bcast"`'> /etc/resolver/localdomain"
+# sudo route -n add -net `boot2docker ssh ifconfig | tr "\n" " " | pcregrep -o2 -iM "docker0(.*?)inet addr:(.*?) Bcast" | pcregrep -o1 -i "(\d+?\.\d+?\.)"`0.0 `boot2docker ip`
+
+sudo mkdir -p /var/lib/boot2docker
+sudo touch /var/lib/boot2docker/profile
+
+# Set up DNS
+# if ! cat /var/lib/boot2docker/profile | grep "dns-search"; then
+    # sudo sh -c "echo 'EXTRA_ARGS=\"--dns 172.17.42.1 --dns-search dev\"' >> /var/lib/boot2docker/profile"
+# fi
+
+# 42?
+if ! cat /var/lib/boot2docker/profile | grep "bip"; then
+    sudo sh -c "echo 'EXTRA_ARGS=\"--bip=172.17.0.1/24 --dns=172.17.0.1\"' >> /var/lib/boot2docker/profile"
+fi
+sudo route -n add -net 172.17.0.0 `boot2docker ip`
+sudo sh -c "echo 'nameserver 172.17.0.1'> /etc/resolver/docker"
+
+sudo sh -c "echo 'nameserver 172.17.0.1'> /etc/resolver/bu"
+
+if ! cat /etc/hosts | grep "192.168.59.103 bu" > /dev/null ; then
+    sudo sh -c "echo '192.168.59.103 bu app.bu marketing.bu gc.bu groundcontrol.bu m.bu dashboard.bu' >> /etc/hosts"
+fi
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+
+# Clone down the codebase
+pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey
+
+# Clone down the codebase
+mkdir -p ~/buddyup
+cd ~/buddyup
+git clone git@github.com:buddyup/core.git
+

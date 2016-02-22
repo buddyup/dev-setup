@@ -51,6 +51,12 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
-eval "$(docker-machine env default)"
+export DNS_DOMAIN=localdomain
+
+if ! docker-machine active &> /dev/null; then
+    eval "$(docker-machine env default)"
+fi;
+
+source /usr/local/lib/python2.7/site-packages/dewey/bin/bootstrap_dewey.sh 
 
 . ~/.bash_profile.bak
