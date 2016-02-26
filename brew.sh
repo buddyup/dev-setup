@@ -220,3 +220,7 @@ mkdir -p ~/buddyup
 cd ~/buddyup
 git clone git@github.com:buddyup/core.git
 
+
+# Set up docker login
+echo "Time to log in to docker.  Please enter your docker hub credentials below."
+docker login
