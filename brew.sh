@@ -172,8 +172,12 @@ brew cask install --appdir="/Applications" dropbox
 # Install Docker, which requires virtualbox
 brew install docker
 brew install boot2docker
+# Next?
+# brew install Caskroom/cask/dockertoolbox
 boot2docker config | sed "s/DiskSize = 20000/DiskSize = 30000/g" > ~/.boot2docker/profile
 
+brew install unison
+brew install fswatch
 
 # Set up dns
 # sudo sh -c "echo 'nameserver `boot2docker ssh ifconfig | tr "\n" " " | pcregrep -o2 -iM "docker0(.*?)inet addr:(.*?) Bcast"`'> /etc/resolver/localdomain"
@@ -189,7 +193,8 @@ fi
 sudo sh -c "echo 'nameserver 172.17.42.1'> /etc/resolver/bu"
 sudo route -n add -net 172.17.0.0 `boot2docker ip`
 if ! cat /etc/hosts | grep "192.168.59.103 bu" > /dev/null ; then
-    sudo sh -c "echo '192.168.59.103 bu app.bu api.bu marketing.bu gc.bu groundcontrol.bu m.bu dashboard.bu' >> /etc/hosts"
+    sudo sh -c "echo '192.168.59.103 api.bu' >> /etc/hosts"
+    sudo sh -c "echo '127.0.0.1 bu app.bu marketing.bu gc.bu groundcontrol.bu m.bu dashboard.bu' >> /etc/hosts"
 fi
 
 
@@ -219,7 +224,12 @@ pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey
 mkdir -p ~/buddyup
 cd ~/buddyup
 git clone git@github.com:buddyup/core.git
-
+cd core
+npm install -g n
+n 4.3.1
+n use 4.3.1
+npm install .
+bower install
 
 # Set up docker login
 echo "Time to log in to docker.  Please enter your docker hub credentials below."
