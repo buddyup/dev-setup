@@ -211,17 +211,23 @@ if [ -s .bash_profile.bak ]; then
     rm .bash_profile
     mv .bash_profile.bak .bash_profile
 fi
-if [ ! -s .gitconfig.bak ]; then
-    cp .gitconfig .gitconfig.bak
+if [ -s .gitconfig.bak ]; then
+    rm .gitconfig
+    mv .gitconfig.bak .gitconfig
 fi
+rm .bash_profile_buddyup
 ln -s bootstrap/.bash_profile .bash_profile_buddyup
-ln -s bootstrap/.gitconfig .gitconfig
 
 if ! cat .bash_profile | grep "bash_profile_buddyup"; then
-    echo "source .bash_profile_buddyup" >> .bash_profile
+    printf "\n# Added by BuddyUp Dev Setup\nsource .bash_profile_buddyup" >> .bash_profile
 fi
 
-# Clone down the codebase
+if ! cat .gitconfig | grep "bootstrap/.gitconfig"; then
+    printf "\n# Added by BuddyUp Dev Setup\n[include]\n\tpath = bootstrap/.gitconfig\n" >> .gitconfig
+fi
+
+
+# Set up dewey
 pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey
 
 # Clone down the codebase
