@@ -207,9 +207,9 @@ brew cleanup
 
 # Wire up profile (revised, saner way to do it.)
 cd ~
-if [ ! .bash_profile.bak ]; then
-    cp .bash_profile.bak .bash_profile
-    rm .bash_profile.bak
+if [ -s .bash_profile.bak ]; then
+    rm .bash_profile
+    mv .bash_profile.bak .bash_profile
 fi
 if [ ! -s .gitconfig.bak ]; then
     cp .gitconfig .gitconfig.bak
@@ -234,6 +234,7 @@ n 4.3.1
 n use 4.3.1
 npm install .
 bower install
+npm rebuild node-sass
 
 # Set up docker login
 echo "Time to log in to docker.  Please enter your docker hub credentials below."

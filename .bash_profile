@@ -53,12 +53,12 @@ export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DNS_DOMAIN=localdomain
 
+# Decide on this
 if ! docker-machine active &> /dev/null; then
     eval "$(docker-machine env default)"
 fi;
 
 source /usr/local/lib/python2.7/site-packages/dewey/bin/bootstrap_dewey.sh 
-
-. ~/.bash_profile.bak
-
 alias d=dewey
+
+source .bash_profile_buddyup
