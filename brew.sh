@@ -237,11 +237,6 @@ git clone git@github.com:buddyup/core.git
 cd core
 npm install -g n
 n 4.3.1
-n use 4.3.1
 npm install .
 bower install
 npm rebuild node-sass
-
-# Set up docker login
-echo "Time to log in to docker.  Please enter your docker hub credentials below."
-docker login
