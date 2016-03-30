@@ -60,5 +60,3 @@ fi;
 
 source /usr/local/lib/python2.7/site-packages/dewey/bin/bootstrap_dewey.sh 
 alias d=dewey
-
-source .bash_profile_buddyup
