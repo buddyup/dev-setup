@@ -110,6 +110,7 @@ brew install git-lfs
 brew install git-flow
 brew install git-extras
 # brew install imagemagick --with-webp
+brew install libsass
 brew install lua
 brew install lynx
 brew install p7zip
@@ -204,18 +205,21 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 # Remove outdated versions from the cellar.
 brew cleanup
 
-# Wire up profile.
+# Wire up profile (revised, saner way to do it.)
 cd ~
-if [ ! -s .bash_profile.bak ]; then
-    cp .bash_profile .bash_profile.bak
+if [ ! .bash_profile.bak ]; then
+    cp .bash_profile.bak .bash_profile
+    rm .bash_profile.bak
 fi
 if [ ! -s .gitconfig.bak ]; then
     cp .gitconfig .gitconfig.bak
 fi
-mv .bash_profile .bash_profile.bootstrap.bak
-mv .gitconfig .gitconfig.bootstrap.bak
-ln -s bootstrap/.bash_profile .bash_profile
+ln -s bootstrap/.bash_profile .bash_profile_buddyup
 ln -s bootstrap/.gitconfig .gitconfig
+
+if ! cat .bash_profile | grep "bash_profile_buddyup"; then
+    echo "source .bash_profile_buddyup" >> .bash_profile
+fi
 
 # Clone down the codebase
 pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey
