@@ -240,3 +240,8 @@ n 4.3.1
 npm install .
 bower install
 npm rebuild node-sass
+cd app/native/ionic
+ionic platform remove ios
+ionic platform add ios
+ionic platform remove android
+ionic platform add android
