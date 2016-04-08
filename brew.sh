@@ -229,6 +229,7 @@ fi
 
 
 # Set up dewey and polytester
+pip install --upgrade pip
 pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey --upgrade
 pip install polytester --upgrade
 
