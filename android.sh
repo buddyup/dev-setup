@@ -26,7 +26,8 @@ brew cask install --appdir="~/Applications" java
 # brew cask install --appdir="~/Applications" android-studio
 
 brew install android-sdk
-$(android list sdk | grep 'Android SDK Build-tools' | sed 's/ *\([0-9]\+\)\-.*/\1/')
+# Add the latest build tools.
+echo "yes" | android update sdk -u -a -t  $(android list sdk | grep 'Android SDK Tools' | sed 's/ *\([0-9]\+\)\-.*/\1/')
 
 # Remove outdated versions from the cellar.
 brew cleanup

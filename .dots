@@ -109,7 +109,9 @@ function runDots() {
 
             # Set up docker login
             echo "Time to log in to docker.  Please enter your docker hub credentials below."
-            docker login
+            if ! cat .docker/config.json | grep "email"; then
+                docker login
+            fi
 
         fi
     done

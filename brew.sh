@@ -179,6 +179,7 @@ boot2docker config | sed "s/DiskSize = 20000/DiskSize = 30000/g" > ~/.boot2docke
 
 brew install unison
 brew install fswatch
+brew install Caskroom/cask/genymotion
 
 # Set up dns
 # sudo sh -c "echo 'nameserver `boot2docker ssh ifconfig | tr "\n" " " | pcregrep -o2 -iM "docker0(.*?)inet addr:(.*?) Bcast"`'> /etc/resolver/localdomain"
