@@ -228,19 +228,18 @@ fi
 
 
 # Set up dewey
-pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey
+pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey --upgrade
 
-# Clone down the codebase
+# Clone down the codebases
 mkdir -p ~/buddyup
 cd ~/buddyup
 git clone git@github.com:buddyup/core.git
-cd core
-npm install -g n
-n 4.3.1
-npm install .
-bower install
-npm rebuild node-sass
-cd app/native/ionic
+
+cd ~/buddyup
+git clone git@github.com:buddyup/oliver.git
+cd oliver
+npm install -g ios-deploy webpack --unsafe-perm=true
+npm install
 ionic platform remove ios
 ionic platform add ios
 ionic platform remove android
