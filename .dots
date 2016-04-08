@@ -105,14 +105,21 @@ function runDots() {
             chmod +x /usr/local/bin/docker-osx-dev
             docker-osx-dev install
 
-            d upgrade
+            dewey upgrade
 
             # Set up docker login
             echo "Time to log in to docker.  Please enter your docker hub credentials below."
-            if ! cat .docker/config.json | grep "email"; then
+            if ! cat ~/.docker/config.json | grep "email"; then
                 docker login
             fi
-
+        fi
+        if [ $ARG == "codebases" ] || [ $ARG == "all" ]; then
+            # Run the codebases.sh Script
+            echo "------------------------------"
+            echo "Setting up BuddyUp Codebases."
+            echo "------------------------------"
+            echo ""
+            ./codebases.sh
         fi
     done
 
