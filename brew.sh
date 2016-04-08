@@ -228,8 +228,9 @@ if ! cat .gitconfig | grep "bootstrap/.gitconfig"; then
 fi
 
 
-# Set up dewey
+# Set up dewey and polytester
 pip install git+https://git@github.com/buddyup/dewey.git#egg=dewey --upgrade
+pip install polytester --upgrade
 
 # Clone down the codebases
 mkdir -p ~/buddyup
