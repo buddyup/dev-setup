@@ -202,6 +202,10 @@ if ! cat /etc/hosts | grep "192.168.59.103 bu" > /dev/null ; then
     sudo sh -c "echo '127.0.0.1 bu app.bu marketing.bu gc.bu groundcontrol.bu m.bu dashboard.bu' >> /etc/hosts"
 fi
 
+if ! cat /etc/hosts | grep "dev.firebase.bu" > /dev/null ; then
+    sudo sh -c "echo '192.168.59.103 dev.firebase.bu test.firebase.bu' >> /etc/hosts"
+fi
+
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
