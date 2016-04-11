@@ -33,6 +33,12 @@ cd ~/buddyup
 git clone git@github.com:buddyup/core.git
 
 cd ~/buddyup
+git clone git@github.com:buddyup/firebase-server.git
+
+cd ~/buddyup
+git clone git@github.com:buddyup/api.git
+
+cd ~/buddyup
 git clone git@github.com:buddyup/oliver.git
 cd oliver
 npm install -g ios-deploy webpack --unsafe-perm=true
