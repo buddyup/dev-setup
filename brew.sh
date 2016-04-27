@@ -183,7 +183,11 @@ brew services start redis
 mkdir -p /usr/local/var/postgres/{pg_tblspc,pg_twophase,pg_replslot,pg_stat_tmp,pg_stat,pg_snapshots,pg_logical}/
 mkdir -p /usr/local/var/postgres/pg_logical/snapshots
 mkdir -p /usr/local/var/postgres/pg_logical/mappings
-createdb buddyup
+
+# Make the database if it doesn't exist.
+if [[ -z `psql -Atqc '\list buddyup' postgres` ]]; then createdb buddyup; fi
+
+
 
 # Next?
 # brew install Caskroom/cask/dockertoolbox
