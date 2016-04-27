@@ -176,6 +176,15 @@ brew cask install --appdir="/Applications" dropbox
 # Install Docker, which requires virtualbox
 brew install docker
 brew install boot2docker
+brew install postgresql94 memcached libmemcached redis
+brew services start homebrew/versions/postgresql94
+brew services start memcached
+brew services start redis
+mkdir -p /usr/local/var/postgres/{pg_tblspc,pg_twophase,pg_replslot,pg_stat_tmp,pg_stat,pg_snapshots,pg_logical}/
+mkdir -p /usr/local/var/postgres/pg_logical/snapshots
+mkdir -p /usr/local/var/postgres/pg_logical/mappings
+createdb buddyup
+
 # Next?
 # brew install Caskroom/cask/dockertoolbox
 boot2docker config | sed "s/DiskSize = 20000/DiskSize = 30000/g" > ~/.boot2docker/profile
