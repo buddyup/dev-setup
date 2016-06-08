@@ -188,7 +188,6 @@ mkdir -p /usr/local/var/postgres/pg_logical/mappings
 if [[ -z `psql -Atqc '\list buddyup' postgres` ]]; then createdb buddyup; fi
 
 
-
 # Next?
 # brew install Caskroom/cask/dockertoolbox
 boot2docker config | sed "s/DiskSize = 20000/DiskSize = 30000/g" > ~/.boot2docker/profile
